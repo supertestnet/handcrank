@@ -108,19 +108,16 @@ Users of the sidechain must trust miners to instead follow the expected procedur
 12. Some months or years later, a man named Bob posts an Ownership Proof on the sidechain to show he now owns Alice's deposit
 13. He simultaneously posts a Withdrawal Request on the sidechain saying where to send the bitcoins
 14. They are currently still sitting in the taproot address Alice made
-15. Bob posts the hash of his Withdrawal Request on bitcoin's blockchain
-16. A bitcoin miner verifies Bob’s Ownership Proof
-17. The miner broadcasts the first covenant transaction from step 5
-18. The covenant transaction moves Alice's deposit into a bitcoin address with a 1.5 month timelock
-19. The covenant transaction includes the hash of Bob’s Withdrawal Request
-20. Other bitcoin miners who follow the handcrank protocol validate this first use of a covenant transaction to move Alice's deposit
-21. If something's wrong (e.g. Bob’s Ownership Proof doesn't check out and he is NOT the rightful owner), they use Delay Sigs to increase the covenant timelock 1 block at a time
-22. The maximum delay is 3 months and starts counting down again if any miner doesn't increase it
-23. During this delay, the rightful owner may post a "valid" (according to sidechain rules) Withdrawal Request with accompanying Ownership Proof for miners to validate
-24. Until that happens or the 3 months are up (whichever comes first), miners keep delaying
-25. When miners stop delaying, the countdown continues at its regular pace
-26. When the countdown expires a miner can move the money with the Spend Sig to an anyone_can_spend address
-27. In the same block's next transaction, they must move the money to the address in the Withdrawal Request
-28. If the rightful owner never made a Withdrawal Request even after all the delays, the miner moves the money to an address of their choice
-29. If in step 27 the money went to the wrong address, other miners orphan the block it happened in and replace it with one that does it right
-30. End of protocol
+15. A bitcoin miner verifies Bob’s Ownership Proof
+16. The miner broadcasts the first covenant transaction from step 5
+17. The covenant transaction moves Alice's deposit into a bitcoin address with a 1.5 month timelock
+18. Other bitcoin miners who follow the handcrank protocol validate this first use of a covenant transaction to move Alice's deposit
+19. If something's wrong (e.g. Bob’s Ownership Proof doesn't check out and he is NOT the rightful owner), they use Delay Sigs to increase the covenant timelock 1 block at a time
+20. The maximum delay is 3 months and starts counting down again if any miner doesn't increase it
+21. During this delay, the rightful owner may post a "valid" (according to sidechain rules) Withdrawal Request with accompanying Ownership Proof for miners to validate
+22. Until that happens or the 3 months are up (whichever comes first), miners keep delaying
+23. When miners stop delaying, the countdown continues at its regular pace
+24. When the countdown expires a miner can move the money with the Spend Sig to an anyone_can_spend address
+25. In the same block's next transaction, they must move the money to the address in the Withdrawal Request
+26. If the rightful owner never made a Withdrawal Request even after all the delays, the miner moves the money to an address of their choice
+27. If in step 25 the money went to the wrong address, other miners orphan the block it happened in and replace it with one that does it right
