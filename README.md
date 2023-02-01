@@ -113,7 +113,7 @@ Users of the sidechain must trust miners to instead follow the expected procedur
 16. The covenant transaction moves Alice's deposit into a bitcoin address with a 3 month timelock
 17. Other bitcoin miners who follow the handcrank protocol validate this first use of a covenant transaction to move Alice's deposit
 18. If something's wrong (e.g. Bob’s Ownership Proof doesn't check out and he is NOT the rightful owner), they can reset the covenant timelock
-19. The maximum delay is 6 months and starts counting down again if any miner doesn't reset it
+19. The delay can be as long as 6 months and starts counting down again if any miner doesn't reset it
 20. During this delay, the rightful owner may post a "valid" (according to sidechain rules) Withdrawal Request with accompanying Ownership Proof for miners to validate
 21. Until that happens or the 6 months are up (whichever comes first), miners keep delaying
 22. When miners stop delaying, the countdown continues at its regular pace
