@@ -11,7 +11,7 @@
 7. Any bitcoin miner can check the new person’s claim and start sending them Alice’s deposit
 8. During the delay, any miner who rejects the claim can extend the delay up to 6 months
 9. During the delay, the rightful owner is supposed to say where the money should *really* go
-10. After the delay miners send the money to its true owner or take it if they never spoke up
+10. After the delay miners send the money to its rightful owner or take it if they never spoke up
 
 # Overview
 
@@ -84,7 +84,7 @@ An important feature of these withdrawal transactions is a miner's option to del
 
 The following safeguard is in place to prevent users other than miners from trolling the process by broadcasting a “delay” transaction in every block even when it is not called for (remember, all the withdrawal transactions are publicly visible on the sidechain): none of the withdrawal transactions pay mining fees. Therefore, according to the default policy of bitcoin core, nodes won't relay them and miners won't accept them. But miners who participate in the handcrank protocol *can* mine them because it's not against bitcoin's consensus rules, only a default policy which can be overridden through RPC commands by handcrank software. Therefore miners who follow the handcrank protocol can make their own independent decision about which transactions to broadcast without influence from trolls.
 
-## 9 & 10. During the delay, the rightful owner is supposed to say where the money should *really* go, and after the delay miners send the money to its true owner or take it if they never spoke up
+## 9 & 10. During the delay, the rightful owner is supposed to say where the money should *really* go, and after the delay miners send the money to its rightful owner or take it if they never spoke up
 
 Because miners can delay withdrawals, users of the sidechain can have confidence that miners get to decide between competing attempts to withdraw the same coins. Miners can force a withdrawal attempt to crawl along if it's not made by the rightful owner, leaving time for the rightful owner to say where the money should really go, at which point miners can hasten along the withdrawal and send the coins to the right place. Thus miners are in control of sidechain withdrawals.
 
