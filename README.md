@@ -88,9 +88,10 @@ The following safeguard is in place to prevent users other than miners from trol
 
 Because miners can delay withdrawals, users of the sidechain can have confidence that miners get to decide between competing attempts to withdraw the same coins. Miners can force a withdrawal attempt to crawl along if it's not made by the rightful owner, leaving time for the rightful owner to say where the money should really go, at which point miners can hasten along the withdrawal and send the coins to the right place. Thus miners are in control of sidechain withdrawals.
 
-51% of miners are trusted not to steal a user's coins. They could steal by colluding to keep their signature shards and use them to sign a transaction taking money straight out of the deposit address. This won’t work if at least one of the original 51% of miners was honest and deleted their shard, but that's not the only danger: at any time, the 51% can collude to (1) let transactions proceed quickly no matter what, (2) move all utxos into the anyone_can_spend address with the spend sigs as quickly as possible, (3) immediately (in the same block) move them into one or more of their own addresses, and (4) orphan any blocks containing transactions that try to get any utxos to their rightful owners through the expected procedure.
+51% of miners are trusted not to steal a user's coins. They could steal by colluding to keep their signature shards and use them to sign a transaction taking money straight out of the deposit address. This won’t work if at least one of the original 51% of miners was honest and deleted their shard, but that's not the only danger: at any time, the 51% can collude to (1) let transactions proceed quickly no matter what, (2) immediately move any utxos in an anyone_can_spend state into one or more of their own addresses, and (3) orphan any blocks containing transactions that try to get any utxos to their rightful owners through the expected procedure.
 
-Users of the sidechain must trust miners to instead follow the expected procedure: make fraudulent withdrawals crawl through their timelocks until their rightful owners speak up. But (1) let rightful transactions proceed quickly, (2) move the utxos into the anyone_can_spend address with the spend sigs, (3) immediately (in the same block) move them into the addresses specified by the rightful owners, and (4) orphan any blocks containing transactions that try to steal user funds. As long as 51% of miners follow this protocol, users should not lose funds. If less than 51% follow this protocol, users of the sidechain can lose their money forever, meaning they mistrusted the miners and should learn their lesson.
+Users of the sidechain must trust miners to instead follow the expected procedure: make fraudulent withdrawals crawl through their timelocks until their rightful owners speak up. But (1) let rightful transactions proceed quickly, (2) immediately move any utxos in an anyone_can_spend state into the addresses specified by the rightful owners, and (3) orphan any blocks containing transactions that try to steal user funds. As long as 51% of miners follow this protocol, users should not lose funds. If less than 51% follow this protocol, users of the sidechain can lose their money forever, meaning they mistrusted the miners and should learn their lesson.
+
 
 # Lifecycle of a handcrank deposit
 
@@ -99,25 +100,24 @@ Users of the sidechain must trust miners to instead follow the expected procedur
 3. She smooshes 51 of those pubkeys into a taproot address
 4. She asks those 51 miners to sign a multisig covenant and then delete their keys
 5. The covenant is a bunch of signed bitcoin transactions which move Alice's deposit out of the taproot address
-6. The covenant includes a bunch of signatures called Delay Sigs and Spend Sigs
-7. Alice deposits X bitcoins into the taproot address
-8. She posts a message on the sidechain announcing the covenant
-9. Sidechain nodes validate the covenant but must trust that at least 1 of the 51 miners deleted their key
-10. If the covenant checks out, Alice's sidechain address is credited with X "sidechain bitcoins"
-11. On the sidechain, Alice transfers her money around and loses ownership of it
-12. Some months or years later, a man named Bob posts an Ownership Proof on the sidechain to show he now owns Alice's deposit
-13. He simultaneously posts a Withdrawal Request on the sidechain saying where to send the bitcoins
-14. They are currently still sitting in the taproot address Alice made
-15. A bitcoin miner verifies Bob’s Ownership Proof
-16. The miner broadcasts the first covenant transaction from step 5
-17. The covenant transaction moves Alice's deposit into a bitcoin address with a 3 month timelock
-18. Other bitcoin miners who follow the handcrank protocol validate this first use of a covenant transaction to move Alice's deposit
-19. If something's wrong (e.g. Bob’s Ownership Proof doesn't check out and he is NOT the rightful owner), they can reset the covenant timelock
-20. The maximum delay is 6 months and starts counting down again if any miner doesn't reset it
-21. During this delay, the rightful owner may post a "valid" (according to sidechain rules) Withdrawal Request with accompanying Ownership Proof for miners to validate
-22. Until that happens or the 6 months are up (whichever comes first), miners keep delaying
-23. When miners stop delaying, the countdown continues at its regular pace
-24. When the countdown expires a miner can move the money anywhere
-25. But they are considered a thief unless they immediately move the money to the address in the Withdrawal Request
-26. If the rightful owner never made a Withdrawal Request even after all the delays, the miner may move the money to an address of their choice
-27. If in step 25 the money went to the wrong address, other miners orphan the block it happened in and replace it with one that does it right
+6. Alice deposits X bitcoins into the taproot address
+7. She posts a message on the sidechain announcing the covenant
+8. Sidechain nodes validate the covenant but must trust that at least 1 of the 51 miners deleted their key
+9. If the covenant checks out, Alice's sidechain address is credited with X "sidechain bitcoins"
+10. On the sidechain, Alice transfers her money around and loses ownership of it
+11. Some months or years later, a man named Bob posts an Ownership Proof on the sidechain to show he now owns Alice's deposit
+12. He simultaneously posts a Withdrawal Request on the sidechain saying where to send the bitcoins
+13. They are currently still sitting in the taproot address Alice made
+14. A bitcoin miner verifies Bob’s Ownership Proof
+15. The miner broadcasts the first covenant transaction from step 5
+16. The covenant transaction moves Alice's deposit into a bitcoin address with a 3 month timelock
+17. Other bitcoin miners who follow the handcrank protocol validate this first use of a covenant transaction to move Alice's deposit
+18. If something's wrong (e.g. Bob’s Ownership Proof doesn't check out and he is NOT the rightful owner), they can reset the covenant timelock
+19. The maximum delay is 6 months and starts counting down again if any miner doesn't reset it
+20. During this delay, the rightful owner may post a "valid" (according to sidechain rules) Withdrawal Request with accompanying Ownership Proof for miners to validate
+21. Until that happens or the 6 months are up (whichever comes first), miners keep delaying
+22. When miners stop delaying, the countdown continues at its regular pace
+23. When the countdown expires a miner can move the money anywhere
+24. But they are considered a thief unless they immediately move the money to the address in the Withdrawal Request
+25. If the rightful owner never made a Withdrawal Request even after all the delays, the miner may move the money to an address of their choice
+26. If in step 24 the money went to the wrong address, other miners orphan the block it happened in and replace it with one that does it right
