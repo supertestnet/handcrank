@@ -2,7 +2,7 @@
 
 # TLDR of how handcrank works
 
-1. Alice makes a covenant with 51% of the most recent miners who mined a block
+1. Alice makes a covenant with 51% of the most recent bitcoin miners who mined a block
 2. The covenant involves a big multisig which Alice deposits X bitcoins to
 3. She announces her covenant on a sidechain to get X “sidechain bitcoins”
 4. She does stuff on the sidechain and (let’s suppose) loses ownership of her money
@@ -58,7 +58,7 @@ I will now explain how. I call the following protocol handcrank because a handcr
 
 # Handcrank protocol
 
-## 1. Alice makes a covenant with 51% of the most recent miners who mined a block
+## 1. Alice makes a covenant with 51% of the most recent bitcoin miners who mined a block
 
 Suppose 51% of miners run some software which embeds a fresh public key into the coinbase of every bitcoin block they mine. Any user at any time can select 51 pubkeys from the last 100 mined bitcoin blocks and use them to construct a 51 of 51 musig pubkey. With this pubkey in hand, the user can create a bitcoin “deposit address” which can only be spent from using a "mega signature" that is valid for the musig key. The user will soon send coins to this deposit address, but first they create a series of withdrawal transactions *from* the deposit address, which will be described several paragraphs from now.
 
