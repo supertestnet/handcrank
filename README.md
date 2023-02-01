@@ -9,7 +9,7 @@
 5. A new person claims they now own Alice’s deposit and says they want to withdraw it
 6. The covenant lets 51% of miners send the coins anywhere after a delay of 3 months
 7. Any bitcoin miner can check the new person’s claim and start sending them Alice’s deposit
-8. During the delay, any miner who rejects the claim can reset the delay to 6 months
+8. During the delay, any miner who rejects the claim can reset the delay to add 6 more months
 9. During the delay, the rightful owner is supposed to say where the money should *really* go
 10. After the delay miners send the money to its rightful owner or take it if they never spoke up
 
@@ -78,7 +78,7 @@ If the money is in the “pending withdrawal” address and the “spend sig” 
 
 Altogether, the miners signed 4 transactions: the first puts the money in the “pending withdrawal” address, the second can only move the money from the “pending withdrawal” address into an anyone_can_spend address after 3 months, the third can only prevent that by putting the money into the “delayed withdrawal” address, and the fourth can only move the money from the “delayed withdrawal” address into an anyone_can_spend address. Miners can delay the withdrawal a maximum possible amount of 9 months by waiting til the 3 month timelock is just about to expire and then put the money in the 6 month timelock. They can delay it for a lesser time by putting the money in the 6 month timelock earlier, or by never putting it in the 6 month timelock, in which case the money only has to wait 3 months. After the delay, the money can only enter an anyone_can_spend address.
 
-## 7 & 8. Any bitcoin miner can check the new person’s claim and start sending them Alice’s deposit, and during the delay, any miner who rejects the claim can reset the delay to 6 months
+## 7 & 8. Any bitcoin miner can check the new person’s claim and start sending them Alice’s deposit, and during the delay, any miner who rejects the claim can reset the delay to add 6 more months
 
 An important feature of these withdrawal transactions is a miner's option to delay the withdrawal. Miners are expected to do this if they notice that another bitcoin miner started the withdrawal procedure without a corresponding message on the sidechain in which someone proved they own the deposit and announced where they want to withdraw it to. Without such a message, the withdrawal procedure should not be initiated by any miner, so if it was, that is suspicious, and extra time should be allotted to the withdrawal so that the rightful owner has time to prove their ownership and say where the money should *really* go. Miners who aren't paying attention to the sidechain shouldn't do anything – just let the transaction progress through its current timelock.
 
