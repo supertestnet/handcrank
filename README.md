@@ -2,7 +2,7 @@
 
 # TLDR in 2 sentences
 
-Use a multisig with 51% of miners to emulate a covenant. Then use that covenant to make a hashrate escrow, and thus a drivechain.
+Use a multisig with 51% of miners to emulate a covenant. The covenant lets miners vote on how to spend the money in the covenant address, which is all you need to make a drivechain.
 
 # TLDR in 10 sentences
 
