@@ -2,7 +2,7 @@
 
 # TLDR in 2 sentences
 
-Use a multisig with 51% of miners to emulate a covenant and use that covenant to make a hashrate escrow (and thus a drivechain). This is a downgrade compared to how bip300 does it (because all bitcoin nodes would enforce bip300, not just miners) but it should be fine because drivechain assumes 51% of miners are honest anyway.
+Use a multisig with 51% of miners to emulate a covenant and use that covenant to make a hashrate escrow (and thus a drivechain). This is a downgrade compared to bip300 (because all bitcoin nodes would enforce bip300, not just miners) but it should be fine because drivechain assumes 51% of miners are honest anyway.
 
 # TLDR in 10 sentences
 
