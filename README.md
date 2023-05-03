@@ -2,7 +2,7 @@
 
 # TLDR in 2 sentences
 
-Use a multisig with 51% of miners to emulate a covenant. The covenant allows all miners to vote on how to spend the money in the covenant address, which is all you need to make a drivechain.
+Use a multisig with 51% of miners to emulate a covenant. The covenant allows any miner to vote on how to spend the money in the covenant address, which is all you need to make a drivechain.
 
 # TLDR in 10 sentences
 
