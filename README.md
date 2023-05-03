@@ -1,6 +1,10 @@
 # Handcrank: a drivechain wannabe with no softfork
 
-# TLDR of how handcrank works
+# TLDR in 2 sentences
+
+Use a multisig with 51% of miners to emulate a covenant. This should be fine because drivechain assumes 51% of miners are honest anyway.
+
+# TLDR in 10 sentences
 
 1. Alice makes a 51 of 51 multisig address with the most recent btc miners who mined a block
 2. She deposits X btc to it after she gets the miners to create a “presigned withdrawal” covenant
