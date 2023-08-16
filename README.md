@@ -7,7 +7,7 @@ Use a multisig with 51% of miners to emulate a covenant. The covenant allows any
 # TLDR in 10 sentences
 
 1. Alice makes a 51 of 51 multisig address with the most recent btc miners who mined a block
-2. She deposits X btc to it after she gets the miners to create a “presigned withdrawal” covenant
+2. She deposits X btc to it after she gets the miners to create a “deleted key” covenant
 3. She announces her covenant on a sidechain to get X “sidechain bitcoins”
 4. She does stuff on the sidechain and (let’s suppose) loses ownership of her money
 5. A new person claims they now own Alice’s deposit and says they want to withdraw it
@@ -66,7 +66,7 @@ I will now explain how. I call the following protocol handcrank because a handcr
 
 Suppose 51% of miners run some software which embeds a fresh public key into the coinbase of every bitcoin block they mine. Any user at any time can select 51 pubkeys from the last 100 mined bitcoin blocks and use them to construct a 51 of 51 musig pubkey. With this pubkey in hand, the user can create a bitcoin “deposit address” which can only be spent from using a "mega signature" that is valid for the musig key. The user will soon send coins to this deposit address, but first they create a series of withdrawal transactions from the deposit address, which will be described several paragraphs from now.
 
-## 2 & 3. She deposits X btc to it after she gets the miners to create a “presigned withdrawal” covenant and she announces her covenant on a sidechain to get X “sidechain bitcoins”
+## 2 & 3. She deposits X btc to it after she gets the miners to create a “deleted key” covenant and she announces her covenant on a sidechain to get X “sidechain bitcoins”
 
 The user passes the unsigned transactions to all of the miners whose pubkeys she aggregated into the musig key, then awaits their signature “shards” so she can combine them into a bunch of mega signatures, with one or two mega signatures for each withdrawal transaction. The full set of withdrawal transactions will comprise a multisig covenant. To complete the covenant, at least 1 of the 51 miners must delete their shard of the musig key, that way the money in the musig address can only go to one of the addresses authorized by the limited number of mega signatures, and not go anywhere else.
 
