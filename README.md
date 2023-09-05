@@ -26,7 +26,12 @@ Use a multisig with 51% of miners to emulate a covenant. The covenant allows any
 I’ve spent some time simplifying the idea of drivechain to hopefully turn it into something feasible with current bitcoin script. Here are some of my simplifications:
 
 ```
-What makes a drivechain different from a federated sidechain like liquid is this: with a federated sidechain, all deposits are held in an address where 15 people can vote on what to do with it. These 15 people are trusted to let the "right" person withdraw the money. On a drivechain, all deposits are held in an address where all bitcoin miners can vote on what to do with it. A set of 50% of miners + 1 are trusted to let the "right" person withdraw the money.
+What makes a drivechain different from a federated sidechain like liquid is this:
+with a federated sidechain, all deposits are held in an address where 15 people can
+vote on what to do with it. These 15 people are trusted to let the "right" person
+withdraw the money. On a drivechain, all deposits are held in an address where all
+bitcoin miners can vote on what to do with it. A set of 50% of miners + 1 are
+trusted to let the "right" person withdraw the money.
 ```
 
 And:
