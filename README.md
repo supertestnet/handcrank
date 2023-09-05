@@ -1,6 +1,6 @@
 # Handcrank: a drivechain wannabe with no softfork*
 
-# Retraction
+# *Retraction
 
 I originally said this is done "with no softfork." It has since been pointed out to me that if a majority of miners ran this software it would be a softfork -- specifically, a miner activated softfork. So I no longer claim this works without a softfork, unless a minority of miners run it, in which case it is insecure.
 
