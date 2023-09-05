@@ -1,4 +1,8 @@
-# Handcrank: a drivechain wannabe with no softfork
+# Handcrank: a drivechain wannabe with no softfork*
+
+# Retraction
+
+I originally said this is done "with no softfork." It has since been pointed out to me that if a majority of miners ran this software it would be a softfork -- specifically, a miner activated softfork. So I no longer claim this works without a softfork, unless a minority of miners run it, in which case it is insecure.
 
 # TLDR in 2 sentences
 
@@ -20,6 +24,12 @@ Use a multisig with 51% of miners to emulate a covenant. The covenant allows any
 # Background
 
 I’ve spent some time simplifying the idea of drivechain to hopefully turn it into something feasible with current bitcoin script. Here are some of my simplifications:
+
+```
+What makes a drivechain different from a federated sidechain like liquid is this: with a federated sidechain, all deposits are held in an address where 15 people can vote on what to do with it. These 15 people are trusted to let the "right" person withdraw the money. On a drivechain, all deposits are held in an address where all bitcoin miners can vote on what to do with it. A set of 50% of miners + 1 are trusted to let the "right" person withdraw the money.
+```
+
+And:
 
 ```
 Bip300 creates a new timelock. A bip300 timelock is similar to OP_CHECKSEQUENCEVERIFY,
